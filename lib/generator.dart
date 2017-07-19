@@ -1,3 +1,5 @@
+import 'dart:js';
+
 class KeyForView {
 
   String private;
@@ -6,26 +8,15 @@ class KeyForView {
 }
 
 KeyForView generateKey() {
+
+  JsObject encryptObj;
+
+  encryptObj = new JsObject(context['JSEncrypt']);
+  encryptObj['default_key_size'] = 1024;
+  encryptObj.callMethod('getKey');
+
   return new KeyForView()
-    ..private = "prvqwertyuioplkjhgf"
-        "dsazxcvbnmprvqwertyuioplkjhgfdsa"
-        "zxcvbnmprvqwertyuioplkjhgfdsazxcvbnmpr"
-        "vqwertyuioplkjhgfdsazxcvbnm"
-        "dsazxcvbnmprvqwertyuioplkjhgfdsa"
-        "zxcvbnmprvqwertyuioplkjhgfdsazxcvbnmpr"
-        "vqwertyuioplkjhgfdsazxcvbnm"
-    ..public = "pubmnbvcxzasdfghjklpoiu"
-        "ytrewqwdfvbfsvdrtyiuytfvbnj"
-        "tresxcvbhjkbvcdrtyuiolkjh"
-        "gfdcvnmoiuygfdxzasdf"
-        "ytrewqwdfvbfsvdrtyiuytfvbnj"
-        "tresxcvbhjkbvcdrtyuiolkjh"
-        "gfdcvnmoiuygfdxzasdf"
-        "ytrewqwdfvbfsvdrtyiuytfvbnj"
-        "tresxcvbhjkbvcdrtyuiolkjh"
-        "gfdcvnmoiuygfdxzasdf"
-        "ytrewqwdfvbfsvdrtyiuytfvbnj"
-        "tresxcvbhjkbvcdrtyuiolkjh"
-        "gfdcvnmoiuygfdxzasdf"
-        "ghjkl";
+    ..private = encryptObj.callMethod('getPrivateKey')
+    ..public = encryptObj.callMethod('getPublicKey');
+
 }
