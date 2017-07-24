@@ -16,8 +16,11 @@ class KeyGenerator {
 
   KeyForView key;
 
-  void doGenerate() {
-    key = generateKey();
+  void doGenerateBlue() {
+    key = generateKey(keySize: 1024);
   }
-  
+
+  void doGenerateRed() {
+    key = generateKey(keySize: 2048);
+  }
 }

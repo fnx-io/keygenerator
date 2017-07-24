@@ -1,12 +1,21 @@
 <fnx-app #app class="fit flex--column padding--big">
-
     <h1>Generátor RSA klíčů</h1>
-    <p class="margin--top"><strong>Krok 1:</strong> <button class="btn bg--accent" (click)="doGenerate()">Vygenerujte klíč</button></p>
-    <p class="margin--top"><strong>Krok 2:</strong> Zkopírujte soukromou část klíče a pečlivě si ji uložte:</p>
-    <textarea class="spacer">{{key?.private}}</textarea>
-    <p class="margin--top"><strong>Krok 3:</strong> Zkopírujte veřejnou část klíče a pošlete nám ji:</p>
-    <textarea class="spacer">{{key?.public}}</textarea>
-    <p class="margin--top">Pokud budete klíč generovat opakovaně, dbejte prosím na to, aby veřejná část, kterou nám zašlete, odpovídala soukromé části, kterou si ponecháte.</p>
-    <p><strong>POZOR:</strong> Ztráta soukromé části klíče vede k neřešitelné ztrátě dat. Současně ale je nutné soukromou část klíče uchovat tak, aby k ní nikdo jiný neměl přístup.</p>
 
+    <p class="margin--top">
+        <strong>Krok 1:</strong>
+        <button class="btn bg--blue" (click)="doGenerateBlue()">Vygenerujte MODRÝ klíč</button>
+        <button class="btn bg--red" (click)="doGenerateRed()">Vygenerujte ČERVENÝ klíč</button>
+    </p>
+
+    <p class="margin--top"><strong>Krok 2:</strong> Zkopírujte soukromou část klíče a pečlivě si ji uložte:</p>
+
+    <textarea class="spacer">{{key?.private}}</textarea>
+
+    <p class="margin--top"><strong>Krok 3:</strong> Zkopírujte veřejnou část klíče a pošlete nám ji:</p>
+
+    <textarea class="spacer">{{key?.public}}</textarea>
+
+    <p class="margin--top">Pokud budete klíč generovat opakovaně, dbejte prosím na to, aby veřejná část, kterou nám zašlete, odpovídala soukromé části, kterou si ponecháte.</p>
+
+    <p><strong>POZOR:</strong> Ztráta soukromé části klíče vede k neřešitelné ztrátě dat. Současně ale je nutné soukromou část klíče uchovat tak, aby k ní nikdo jiný neměl přístup.</p>
 </fnx-app>
